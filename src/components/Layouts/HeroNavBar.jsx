@@ -2,7 +2,7 @@ import LandingPageButton from "../Elements/Button/LandingPageButton";
 
 const HeroNavBar = () => {
     return (
-        <nav className="flex w-full absolute top-0 z-20 py-10 px-24 justify-between select-none">
+        <nav className="flex w-screen absolute top-0 z-20 py-10 px-24 justify-between select-none">
             <div className="flex items-center cursor-pointer">
                 <img src="img/icon.png" alt="logo" />
                 <h1 className="text-white text-2xl font-KronaOne ml-4">URBAN FIELDS</h1>
@@ -14,7 +14,7 @@ const HeroNavBar = () => {
             </div>
             <div className="flex items-center text-white text-lg font-Inter">
                 <p className="mr-20 cursor-pointer">Sign In</p>
-                <LandingPageButton textsize='lg' paddingY='4' paddingX='14'>Sign Up</LandingPageButton>
+                <LandingPageButton textsize='lg'>Sign Up</LandingPageButton>
             </div>
         </nav>
     );

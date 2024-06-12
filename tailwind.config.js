@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         Inter: ['Inter', 'sans-serif'],
         KronaOne: ['Krona One', 'sans-serif'],
+        Poppins: ['Poppins', 'sans-serif'],
       },
     },
   },
