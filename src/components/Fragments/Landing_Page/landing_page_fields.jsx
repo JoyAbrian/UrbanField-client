@@ -6,21 +6,24 @@ const LandingPageFields = () => {
         {
             id: 1,
             img: "img/field1.png",
-            venue: "Lapangan Generasi Baru",
+            name: "Lapangan Generasi Baru",
+            venue: "Venue",
             location: "Kota Jakarta Pusat",
             price: 240000
         },
         {
             id: 2,
             img: "img/field2.png",
-            venue: "Lapangan Generasi Baru",
+            name: "Lapangan Generasi Baru",
+            venue: "Venue",
             location: "Kota Jakarta Pusat",
             price: 240000
         },
         {
             id: 3,
             img: "img/field3.png",
-            venue: "Lapangan Generasi Baru",
+            name: "Lapangan Generasi Baru",
+            venue: "Venue",
             location: "Kota Jakarta Pusat",
             price: 240000
         },
@@ -39,7 +42,7 @@ const LandingPageFields = () => {
             </p>
             <div className="flex w-full justify-between px-20 mt-20">
                 {fields.length > 0 && fields.map((field) => (
-                    <FieldCard key={field.id} img={field.img} venue={field.venue} location={field.location} price={field.price} />
+                    <FieldCard key={field.id} img={field.img} venue={field.venue} name={field.name} location={field.location} price={field.price} />
                 ))}
             </div>
             <div className="mt-14 flex justify-center items-center w-full">
