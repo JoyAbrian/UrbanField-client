@@ -3,6 +3,7 @@ import NavBar from "../components/Layouts/NavBar";
 import FieldsInput from "../components/Elements/Input/FieldsInput";
 import FieldCard from "../components/Elements/Card/FieldCard";
 import LandingPageAbout from "../components/Fragments/Landing_Page/landing_page_about";
+import { Helmet } from "react-helmet";
 
 const FieldsPage = () => {
     const fields = [
@@ -105,6 +106,9 @@ const FieldsPage = () => {
     ]
     return (
         <Fragment>
+            <Helmet>
+                <title>Our Fields | Urban Fields</title>
+            </Helmet>
             <NavBar />
             <div className="bg-gradient-to-r from-cyan-600 via-sky-900 to-gray-800 w-full h-[116px] justify-center flex items-center select-none">
                 <h1 className="text-white font-Poppins font-bold text-4xl">BOOKING LAPANGAN ONLINE TERBAIK</h1>
