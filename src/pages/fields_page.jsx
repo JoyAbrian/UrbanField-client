@@ -109,10 +109,13 @@ const FieldsPage = () => {
             <div className="bg-gradient-to-r from-cyan-600 via-sky-900 to-gray-800 w-full h-[116px] justify-center flex items-center select-none">
                 <h1 className="text-white font-Poppins font-bold text-4xl">BOOKING LAPANGAN ONLINE TERBAIK</h1>
             </div>
-            <div className="mt-7 w-full justify-center gap-20 flex select-none">
-                <FieldsInput image="img/searchIcon.png" placeholder="Cari nama venue"/>
-                <FieldsInput image="img/locationIcon.png" placeholder="Pilih lokasi"/>
-                <button className="w-1/6 h-16 bg-sky-900 text-white text-xl font-Poppins rounded-2xl">Cari Venue</button>
+            <div className="mx-36">
+                <div className="mt-7 w-full justify-center gap-10 flex select-none">
+                    <FieldsInput image="img/searchIcon.png" placeholder="Cari nama venue"/>
+                    <FieldsInput image="img/fieldIcon.png" placeholder="Jenis lapangan"/>
+                    <FieldsInput image="img/locationIcon.png" placeholder="Pilih lokasi"/>
+                    <button className="w-1/6 h-16 bg-sky-900 text-white text-xl font-Poppins rounded-2xl">Cari Venue</button>
+                </div>
             </div>
             <div className="mt-20 w-full grid grid-cols-3 gap-20 px-40 justify-items-center select-none">
                 {fields.length > 0 && fields.map((field) => (

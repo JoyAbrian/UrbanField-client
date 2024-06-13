@@ -10,9 +10,9 @@ const LandingPageAbout = () => {
                 <p>pengalaman sewa lapangan yang tak terlupakan.</p>
             </div>
             
-            <div className="h-0.5 bg-black mt-20 mx-56"></div>
 
-            <div className="w-full h-full bg-blue-500">
+            <div className="w-full h-full bg-blue-500 mt-20">
+                <div className="h-0.5 bg-black mx-56"/>
             </div>
         </div>
     );
