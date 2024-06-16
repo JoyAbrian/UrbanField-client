@@ -125,9 +125,8 @@ const FieldsPage = () => {
                     <FieldCard key={field.id} img={field.img} venue={field.venue} name={field.name} location={field.location} price={field.price} />
                 ))}
             </div>
-            <div className="mt-40">
-                <LandingPageAbout />
-            </div>
+            
+            <LandingPageAbout />
         </Fragment>
     );
 }

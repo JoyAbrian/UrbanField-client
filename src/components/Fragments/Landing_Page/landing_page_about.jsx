@@ -2,7 +2,7 @@ import ContactSections from "../contact_sections";
 
 const LandingPageAbout = () => {
     return (
-        <div className="h-screen select-none">
+        <div className="h-screen select-none mt-40">
             <h1 className="text-5xl font-Poppins font-semibold justify-center text-center mt-10">ABOUT US</h1>
             <div className="text-3xl text-center font-Poppins mt-20">
                 <p>UF adalah platform penyewaan lapangan futsal yang dirancang untuk memudahkan</p>
@@ -13,7 +13,6 @@ const LandingPageAbout = () => {
             </div>
             
             <ContactSections />
-            
         </div>
     );
 }
