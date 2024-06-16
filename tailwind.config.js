@@ -10,6 +10,7 @@ export default {
         Inter: ['Inter', 'sans-serif'],
         KronaOne: ['Krona One', 'sans-serif'],
         Poppins: ['Poppins', 'sans-serif'],
+        DM_Sans: ['DM Sans', 'sans-serif'],
       },
     },
   },

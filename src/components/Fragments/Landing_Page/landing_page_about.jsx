@@ -1,3 +1,5 @@
+import ContactSections from "../contact_sections";
+
 const LandingPageAbout = () => {
     return (
         <div className="h-screen select-none">
@@ -10,10 +12,8 @@ const LandingPageAbout = () => {
                 <p>pengalaman sewa lapangan yang tak terlupakan.</p>
             </div>
             
-
-            <div className="w-full h-full bg-blue-500 mt-20">
-                <div className="h-0.5 bg-black mx-56"/>
-            </div>
+            <ContactSections />
+            
         </div>
     );
 }
