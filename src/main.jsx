@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import LandingPage from './pages/landing_page';
 import FieldsPage from './pages/fields_page';
 import FieldsDetailPage from './pages/field_detail_page';
+import PaymentPage from './pages/payments_page';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: '/detailfield',
     element: <FieldsDetailPage />,
+  },
+  {
+    path: '/payment',
+    element: <PaymentPage />,
   },
 ]);
 
