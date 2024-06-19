@@ -13,7 +13,7 @@ const PaymentPage = () => {
             </Helmet>
             <PaymentNavbar />
             <TitleSections title="PAYMENT"/>
-            <div className="select-none mt-20 px-20 mb-10">
+            <div className="px-10 select-none mt-20 mb-10">
                 <div className="w-1/2 shadow-lg shadow-slate-400 rounded-xl px-8 pb-20">
                     <div className="flex items-center">
                         <img src="img/colouredFieldIcon.png" alt="field" className="w-14 object-cover rounded-l-lg"/>
@@ -161,7 +161,9 @@ const PaymentPage = () => {
                         </div>
                     </div>
                 </div>
-                <LandingPageButton>Bayar Sekarang</LandingPageButton>
+                <div className="w-1/2 flex justify-center mt-12 mb-80">
+                    <LandingPageButton >Bayar Sekarang</LandingPageButton>
+                </div>
 
                 <ContactSections />
             </div>
