@@ -21,11 +21,12 @@ const PaymentPage = () => {
                 <PaymentFieldDetail name="Futsal Rooftop RPC" review="9" city="Kota Jakarta Timur" date="Senin, 1 Januari 2020" time="13:00 - 14:00"/>
                 <PaymentUserDetail />
 
+
+                <PaymentChoose price={5000}/>
+
                 <div className="w-1/2 flex justify-center mt-12 mb-80">
                     <LandingPageButton >Bayar Sekarang</LandingPageButton>
                 </div>
-
-                <PaymentChoose price={5000}/>
 
                 <ContactSections />
             </div>
