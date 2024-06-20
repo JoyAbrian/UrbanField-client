@@ -17,15 +17,13 @@ const PaymentPage = () => {
             </Helmet>
             <PaymentNavbar />
             <TitleSections title="PAYMENT"/>
-            <div className="px-10 select-none mt-20 mb-10">
-                <PaymentFieldDetail name="Futsal Rooftop RPC" review="9" city="Kota Jakarta Timur" date="Senin, 1 Januari 2020" time="13:00 - 14:00"/>
+            <div className="px-10 select-none mt-20 mb-10 w-full flex flex-col items-center">
+                <PaymentFieldDetail name="Futsal Rooftop RPC" review="9" city="Kota Jakarta Timur" date="Senin, 1 Januari 2020" time="13:00 - 14:00" />
                 <PaymentUserDetail />
+                <PaymentChoose price={5000} />
 
-
-                <PaymentChoose price={5000}/>
-
-                <div className="w-1/2 flex justify-center mt-12 mb-80">
-                    <LandingPageButton >Bayar Sekarang</LandingPageButton>
+                <div className="w-1/2 flex justify-center mt-12">
+                    <LandingPageButton>Bayar Sekarang</LandingPageButton>
                 </div>
 
                 <ContactSections />
