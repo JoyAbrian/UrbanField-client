@@ -6,7 +6,6 @@ import ContactSections from "../components/Fragments/contact_sections";
 import LandingPageButton from "../components/Elements/Button/LandingPageButton";
 import PaymentFieldDetail from "../components/Fragments/Payment_Page/payment_field_detail";
 import PaymentUserDetail from "../components/Fragments/Payment_Page/payment_user_detail";
-import PaymentCard from "../components/Elements/Card/PaymentCard";
 import PaymentChoose from "../components/Fragments/Payment_Page/payment_choose";
 
 const PaymentPage = () => {

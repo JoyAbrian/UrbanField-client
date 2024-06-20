@@ -1,5 +1,6 @@
 import LandingPageButton from "../../Elements/Button/LandingPageButton";
 import FieldCard from "../../Elements/Card/FieldCard";
+import { Link } from "react-router-dom";
 
 const LandingPageFields = () => {
     const fields = [
@@ -45,9 +46,9 @@ const LandingPageFields = () => {
                     <FieldCard key={field.id} img={field.img} venue={field.venue} name={field.name} location={field.location} price={field.price} />
                 ))}
             </div>
-            <div className="mt-14 flex justify-center items-center w-full">
+            <a className="mt-14 flex justify-center items-center w-full" href="/fields">
                 <LandingPageButton textsize='lg'>See More</LandingPageButton>
-            </div>
+            </a>
         </div>
     );
 }

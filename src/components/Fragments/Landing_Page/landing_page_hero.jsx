@@ -1,4 +1,5 @@
 import LandingPageButton from "../../Elements/Button/LandingPageButton";
+import { Link } from "react-router-dom";
 
 const LandingPageHero = () => {
     return (
@@ -10,7 +11,9 @@ const LandingPageHero = () => {
                     <h1 className="text-7xl font-Inter font-semibold leading-tight text-white">Now, Find Your</h1>
                     <h1 className="text-7xl font-Inter font-semibold leading-tight text-white">Favorite Fields Here!</h1>
                 </div>
-                <LandingPageButton>Sewa Sekarang!</LandingPageButton>
+                <Link to="/fields">
+                    <LandingPageButton>Sewa Sekarang!</LandingPageButton>
+                </Link>
             </div>
         </div>
     )
