@@ -6,6 +6,7 @@ import LandingPage from './pages/landing_page';
 import FieldsPage from './pages/fields_page';
 import FieldsDetailPage from './pages/field_detail_page';
 import PaymentPage from './pages/payments_page';
+import UserDashboard from './pages/user_dashboard';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: '/payment',
     element: <PaymentPage />,
+  },
+  {
+    path: '/dashboard',
+    element: <UserDashboard />,
   },
 ]);
 
