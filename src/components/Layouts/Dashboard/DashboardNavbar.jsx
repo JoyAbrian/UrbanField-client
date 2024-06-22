@@ -1,9 +1,17 @@
 const DashboardNavbar = () => {
+    const date = new Date();
+    const formattedDate = new Intl.DateTimeFormat('en-US', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+    }).format(date);
+
     return (
-        <nav className="bg-blue-500 p-4">
-        <div className="container mx-auto">
-            <h1 className="text-white text-2xl">Dashboard</h1>
-        </div>
+        <nav className="shadow-md p-4">
+            <div className="container mx-auto flex items-center">
+                <h1 className="text-black font-Inter font-bold text-2xl">Hello Joy</h1>
+                <img src="img/dashboard_item/chevrons-right.png" className="font-bold ml-12 mt-1"/> <span className="font-light font-Inter ml-1"> {formattedDate}</span>
+            </div>
         </nav>
     );
 };
