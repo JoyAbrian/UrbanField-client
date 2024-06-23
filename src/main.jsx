@@ -7,7 +7,8 @@ import FieldsPage from './pages/fields_page';
 import FieldsDetailPage from './pages/field_detail_page';
 import PaymentPage from './pages/payments_page';
 import DashboardPage from './pages/dashboard_page';
-import DashboardHome from './components/Fragments/Dashboard/Dashboard_Home';
+import DashboardHome from './components/Fragments/Dashboard/dashboard_home';
+import DashboardUser from './components/Fragments/Dashboard/dashboard_users';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: '',
         element: <DashboardHome />,
+      },
+      {
+        path: 'users',
+        element: <DashboardUser />,
       },
     ],
   },
