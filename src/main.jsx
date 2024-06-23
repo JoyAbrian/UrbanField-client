@@ -11,6 +11,7 @@ import DashboardHome from './components/Fragments/Dashboard/dashboard_home';
 import DashboardUser from './components/Fragments/Dashboard/dashboard_users';
 import DashboardFields from './components/Fragments/Dashboard/dashboard_fields';
 import DashboardOrder from './components/Fragments/Dashboard/dashboard_orders';
+import DashboardAdmins from './components/Fragments/Dashboard/dashboard_admins';
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: 'orders',
         element: <DashboardOrder />,
+      },
+      {
+        path: 'admins',
+        element: <DashboardAdmins />,
       },
     ],
   },

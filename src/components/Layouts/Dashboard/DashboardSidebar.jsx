@@ -26,7 +26,7 @@ const DashboardSidebar = () => {
               <img src="/img/dashboard_item/order.png" className="w-6 inline-block mr-2"/> Order
             </li>
           </Link>
-          <Link to="/dashboard/admin">
+          <Link to="/dashboard/admins">
             <li className="px-2.5 rounded-lg py-4 my-2 hover:bg-gray-700 cursor-pointer items-center">
               <img src="/img/dashboard_item/admin.png" className="w-6 inline-block mr-2"/> Admin
             </li>

@@ -11,6 +11,7 @@ export default {
         KronaOne: ['Krona One', 'sans-serif'],
         Poppins: ['Poppins', 'sans-serif'],
         DM_Sans: ['DM Sans', 'sans-serif'],
+        Nunito_Sans: ['Nunito Sans', 'sans-serif'],
       },
     },
   },
