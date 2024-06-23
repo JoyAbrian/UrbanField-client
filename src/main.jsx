@@ -23,7 +23,7 @@ const router = createBrowserRouter([
     element: <FieldsPage />,
   },
   {
-    path: '/detailfield',
+    path: '/fields/:id',
     element: <FieldsDetailPage />,
   },
   {

@@ -7,7 +7,7 @@ const FieldFacilityDetails = () => {
             <div className="grid grid-cols-3 gap-6 mt-7">
                 <FacilityCard facility="Parkir Mobil" image="car"/>
                 <FacilityCard facility="Musholla" image="musholla"/>
-                <FacilityCard facility="Parkir Motor" image="bike"/>
+                <FacilityCard facility="Ruang Ganti" image="hanger"/>
                 <FacilityCard facility="Toilet" image="toilet"/>
                 <FacilityCard facility="Kantin" image="cafe"/>
             </div>

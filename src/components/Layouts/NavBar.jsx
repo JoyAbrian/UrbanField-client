@@ -4,7 +4,7 @@ const NavBar = () => {
     return (
         <nav className="flex w-screen top-0 z-20 py-2 px-24 justify-between select-none bg-white shadow-lg sticky">
             <div className="flex items-center cursor-pointer">
-                <img src="img/icon.png" alt="logo"/>
+                <img src="/img/icon.png" alt="logo"/>
                 <h1 className="text-black text-2xl font-KronaOne ml-4">URBAN FIELDS</h1>
             </div>
             <div className="flex items-center text-black text-lg font-Inter ml-52 font-bold">

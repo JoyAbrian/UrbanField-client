@@ -1,4 +1,4 @@
-const FieldsImageDetails = ({ image1 = "img/field_detail1.png", image2 = "img/field_detail2.png", image3 = "img/field_detail3.png" }) => {
+const FieldsImageDetails = ({ image1 = "/img/field_detail1.png", image2 = "/img/field_detail2.png", image3 = "/img/field_detail3.png" }) => {
     return (
         <div className="flex w-full justify-center">
             <img src={image1} alt="field" className="rounded-l-2xl h-full"/>

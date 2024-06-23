@@ -3,7 +3,7 @@ const FieldDescDetail = () => {
         <div className="mt-10 mx-28 flex w-full justify-between">
             <div className="w-3/5">
                 <div className="flex items-center">
-                    <img src="img/fieldIcon.png" alt="field" className="w-16"/>
+                    <img src="/img/fieldIcon.png" alt="field" className="w-16"/>
                     <h2 className="ml-3 text-4xl font-Poppins font-semibold">Futsal Rooftop PTC</h2>
                 </div>
                 <p className="text-2xl text-slate-600">Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta</p>

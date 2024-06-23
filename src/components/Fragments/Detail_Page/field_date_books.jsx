@@ -6,7 +6,7 @@ const FieldDateBooks = () => {
         <div className="mt-20 mx-28">
             <div className="w-fit">
                 <div className="flex items-center">
-                    <img src="img/dateIcon.png" alt="date" className="w-14"/>
+                    <img src="/img/dateIcon.png" alt="date" className="w-14"/>
                     <h2 className="ml-5 text-4xl font-Poppins font-semibold">Pilih Jadwal</h2>
                 </div>
                 <div className="h-0.5 bg-cyan-950 mt-2"/>
