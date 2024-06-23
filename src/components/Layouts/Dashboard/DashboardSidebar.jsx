@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const DashboardSidebar = () => {
   return (
-    <div className="w-72 h-screen bg-[#191919] text-white px-6 pt-12 pb-4 select-none flex flex-col">
+    <div className="w-full h-screen bg-[#191919] text-white px-6 pt-12 pb-4 select-none flex flex-col">
       <div>
         <img src="/img/icon.png" alt="logo" className="w-32 ml-8 mt-3"/>
         <ul className="mt-10 font-Inter text-lg">
