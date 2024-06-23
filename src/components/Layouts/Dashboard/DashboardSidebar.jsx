@@ -4,32 +4,28 @@ const DashboardSidebar = () => {
   return (
     <div className="w-full h-screen bg-[#191919] text-white px-6 pt-12 pb-4 select-none flex flex-col">
       <div>
-        <img src="/img/icon.png" alt="logo" className="w-32 ml-8 mt-3"/>
+        <h1 className="text-white text-2xl font-KronaOne ml-4">URBAN FIELDS</h1>
         <ul className="mt-10 font-Inter text-lg">
           <Link to="/dashboard">
             <li className="px-2.5 rounded-lg py-4 my-2 hover:bg-gray-700 cursor-pointer items-center">
               <img src="/img/dashboard_item/home.png" className="w-6 inline-block mr-2"/> Home
             </li>
           </Link>
-
           <Link to="/dashboard/users">
             <li className="px-2.5 rounded-lg py-4 my-2 hover:bg-gray-700 cursor-pointer items-center">
               <img src="/img/dashboard_item/user.png" className="w-6 inline-block mr-2"/> User
             </li>
           </Link>
-
           <Link to="/dashboard/fields">
             <li className="px-2.5 rounded-lg py-4 my-2 hover:bg-gray-700 cursor-pointer items-center">
               <img src="/img/dashboard_item/field.png" className="w-6 inline-block mr-2"/> Field
             </li>
           </Link>
-
           <Link to="/dashboard/orders">
             <li className="px-2.5 rounded-lg py-4 my-2 hover:bg-gray-700 cursor-pointer items-center">
               <img src="/img/dashboard_item/order.png" className="w-6 inline-block mr-2"/> Order
             </li>
           </Link>
-
           <Link to="/dashboard/admin">
             <li className="px-2.5 rounded-lg py-4 my-2 hover:bg-gray-700 cursor-pointer items-center">
               <img src="/img/dashboard_item/admin.png" className="w-6 inline-block mr-2"/> Admin

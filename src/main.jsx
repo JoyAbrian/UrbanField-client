@@ -10,6 +10,7 @@ import DashboardPage from './pages/dashboard_page';
 import DashboardHome from './components/Fragments/Dashboard/dashboard_home';
 import DashboardUser from './components/Fragments/Dashboard/dashboard_users';
 import DashboardFields from './components/Fragments/Dashboard/dashboard_fields';
+import DashboardOrder from './components/Fragments/Dashboard/dashboard_orders';
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: 'fields',
         element: <DashboardFields />,
+      },
+      {
+        path: 'orders',
+        element: <DashboardOrder />,
       },
     ],
   },
