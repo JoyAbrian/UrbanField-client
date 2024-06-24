@@ -1,20 +1,13 @@
 import{ useState, useEffect } from 'react';
-import axios from 'axios';
+import { getOrders } from '../../../services/db/order.service';
 
 const DashboardOrder = () => {
     const [bookings, setBookings] = useState([]);
 
-    const fetchBookings = async () => {
-        try {
-            const response = await axios.get('http://localhost:5000/bookings');
-            setBookings(response.data);
-        } catch (error) {
-            console.error('Error fetching bookings:', error);
-        }
-    };
-
     useEffect(() => {
-        fetchBookings();
+        getOrders().then((data) => {
+            setBookings(data);
+        });
     }, []);
 
     return (

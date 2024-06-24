@@ -1,17 +1,13 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import DashboardFieldCard from '../../Elements/Card/DashboardFieldCard';
+import { getFields } from '../../../services/db/field.service';
 
 const DashboardFields = () => {
     const [fields, setFields] = useState([]);
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:5000/fields')
-        .then(response => {
-            setFields(response.data);
-        })
-        .catch(error => {
-            console.error('Error fetching fields:', error);
+        getFields().then((data) => {
+            setFields(data);
         });
     }, []);
 

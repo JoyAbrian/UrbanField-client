@@ -1,16 +1,13 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { getUsers } from '../../../services/db/user.service';
 
 const DashboardUser = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:5000/users')
-        .then(response => {
-            setUsers(response.data);
-        })
-        .catch(error => {
-            console.error('Error fetching users:', error);
+        getUsers().then((data) => {
+            setUsers(data);
         });
     }, []);
 
