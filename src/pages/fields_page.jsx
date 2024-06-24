@@ -31,9 +31,9 @@ const FieldsPage = () => {
                     <button className="w-1/6 h-16 bg-sky-900 text-white text-xl font-Poppins rounded-2xl">Cari Venue</button>
                 </div>
             </div>
-            <div className="mt-20 w-full grid grid-cols-3 gap-x-5 gap-y-20 px-40 justify-items-center select-none">
+            <div className="mt-20 w-full grid grid-cols-3 gap-y-10 px-40 justify-items-center select-none">
                 {fields.slice(0, 12).map(field => (
-                    <a key={field.id} href={`/fields/${field.id}`} className="mx-10">
+                    <a key={field.id} href={`/fields/${field.id}`} className="mx-5">
                         <FieldCard key={field.id} img={field.image_url} venue={field.venue} name={field.name} location={field.city} price={field.price_per_hour} />
                     </a>
                 ))}
