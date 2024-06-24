@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const LoginPage = () => {
     return (
         <div className="w-screen h-screen flex items-center justify-center">
@@ -12,6 +14,7 @@ const LoginPage = () => {
                     
                     <div>
                         <button className="w-96 h-12 bg-blue-600 text-white font-Inter font-medium rounded-lg mt-8">Login</button>
+                        <p className="text-center">Don't have an account? <Link to="/register" className="text-blue-600">Register</Link></p>
                     </div>
                 </form>
             </div>

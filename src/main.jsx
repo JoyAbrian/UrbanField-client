@@ -13,6 +13,7 @@ import DashboardFields from './components/Fragments/Dashboard/dashboard_fields';
 import DashboardOrder from './components/Fragments/Dashboard/dashboard_orders';
 import DashboardAdmins from './components/Fragments/Dashboard/dashboard_admins';
 import LoginPage from './pages/login_page';
+import RegisterPage from './pages/register_page';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <LoginPage />,
+  },
+  {
+    path: '/register',
+    element: <RegisterPage />,
   },
   {
     path: '/dashboard',
