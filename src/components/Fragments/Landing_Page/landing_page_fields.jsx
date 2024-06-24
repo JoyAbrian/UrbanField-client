@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import LandingPageButton from "../../Elements/Button/LandingPageButton";
 import FieldCard from "../../Elements/Card/FieldCard";
 import { getFields } from '../../../services/db/field.service';
-import { Link } from "react-router-dom";
 
 const LandingPageFields = () => {
     const [fields, setFields] = useState([]);
