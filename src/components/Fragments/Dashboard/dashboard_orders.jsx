@@ -1,4 +1,22 @@
+import{ useState, useEffect } from 'react';
+import axios from 'axios';
+
 const DashboardOrder = () => {
+    const [bookings, setBookings] = useState([]);
+
+    const fetchBookings = async () => {
+        try {
+            const response = await axios.get('http://localhost:5000/bookings');
+            setBookings(response.data);
+        } catch (error) {
+            console.error('Error fetching bookings:', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchBookings();
+    }, []);
+
     return (
         <div className="mt-5 mx-10 font-Inter font-medium">
             <div className="ml-4">
@@ -17,35 +35,21 @@ const DashboardOrder = () => {
                         </tr>
                     </thead>
                     <tbody className="mt-4">
-                        <tr>
-                            <td className="py-4">1</td>
-                            <td className="py-4">Joy</td>
-                            <td className="py-4">Lapangan Merdeka</td>
-                            <td className="py-4">12-12-2021</td>
-                            <td className="py-4">12:00 - 13:00</td>
-                            <td className="py-4">BCA</td>
-                        </tr>
-                        <tr>
-                            <td className="py-4">2</td>
-                            <td className="py-4">Joy</td>
-                            <td className="py-4">Lapangan Merdeka</td>
-                            <td className="py-4">12-12-2021</td>
-                            <td className="py-4">12:00 - 13:00</td>
-                            <td className="py-4">BCA</td>
-                        </tr>
-                        <tr>
-                            <td className="py-4">3</td>
-                            <td className="py-4">Joy</td>
-                            <td className="py-4">Lapangan Merdeka</td>
-                            <td className="py-4">12-12-2021</td>
-                            <td className="py-4">12:00 - 13:00</td>
-                            <td className="py-4">BCA</td>
-                        </tr>
+                        {bookings.map(booking => (
+                            <tr key={booking.id}>
+                                <td className="py-4">{booking.id}</td>
+                                <td className="py-4">{booking.user_name}</td>
+                                <td className="py-4">{booking.field_name}</td>
+                                <td className="py-4">{booking.date}</td>
+                                <td className="py-4">{booking.time}</td>
+                                <td className="py-4">{booking.payment_method_name}</td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default DashboardOrder;

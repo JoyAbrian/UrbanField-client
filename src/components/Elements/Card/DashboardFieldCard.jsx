@@ -3,7 +3,7 @@ const DashboardFieldCard = (props) => {
     return (
         <div className="w-full p-4">
             <div className="rounded-md shadow-lg">
-                <img src={image} alt="field" />
+                <img src={image} alt="field" className="w-full"/>
                 <div className="bg-white px-5 font-Inter">
                     <h1 className="text-lg font-semibold mt-4">{name}</h1>
                     <p className="mt-2 w-full text-[#475569]">{description}</p>
