@@ -1,34 +1,17 @@
+import { useEffect, useState } from "react";
 import LandingPageButton from "../../Elements/Button/LandingPageButton";
 import FieldCard from "../../Elements/Card/FieldCard";
+import { getFields } from '../../../services/db/field.service';
 import { Link } from "react-router-dom";
 
 const LandingPageFields = () => {
-    const fields = [
-        {
-            id: 1,
-            img: "img/field1.png",
-            name: "Lapangan Generasi Baru",
-            venue: "Venue",
-            location: "Kota Jakarta Pusat",
-            price: 240000
-        },
-        {
-            id: 2,
-            img: "img/field2.png",
-            name: "Lapangan Generasi Baru",
-            venue: "Venue",
-            location: "Kota Jakarta Pusat",
-            price: 240000
-        },
-        {
-            id: 3,
-            img: "img/field3.png",
-            name: "Lapangan Generasi Baru",
-            venue: "Venue",
-            location: "Kota Jakarta Pusat",
-            price: 240000
-        },
-    ];
+    const [fields, setFields] = useState([]);
+
+    useEffect(() => {
+        getFields().then((data) => {
+            setFields(data);
+        });
+    }, []);
 
     return (
         <div className="h-screen select-none">
@@ -41,9 +24,11 @@ const LandingPageFields = () => {
             <p className="mt-5 text-2xl font-Poppins font-light text-center">
                 Rasakan keseruan silaturahmi di lapangan bersama teman amatir anda lainnya sekarang juga!
             </p>
-            <div className="flex w-full justify-between px-20 mt-20">
-                {fields.length > 0 && fields.map((field) => (
-                    <FieldCard key={field.id} img={field.img} venue={field.venue} name={field.name} location={field.location} price={field.price} />
+            <div className="flex w-full justify-between px-20 gap-5 mt-20">
+                {fields.slice(0, 3).map(field => (
+                    <a key={field.id} href={`/fields/${field.id}`} className="mx-10">
+                        <FieldCard img={field.image_url} venue={field.venue} name={field.name} location={field.city} price={field.price_per_hour} />
+                    </a>
                 ))}
             </div>
             <a className="mt-14 flex justify-center items-center w-full" href="/fields">
