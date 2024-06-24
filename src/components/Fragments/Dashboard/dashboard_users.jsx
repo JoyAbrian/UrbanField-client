@@ -28,12 +28,12 @@ const DashboardUser = () => {
             </thead>
             <tbody className="mt-4">
                 {users.map(user => (
-                <tr key={user.id} className="border-b-[0.5px] border-gray-200">
-                    <td className="py-2 pt-4">{user.id}</td>
-                    <td className="py-2 pt-4">{user.username}</td>
-                    <td className="py-2 pt-4">{user.phone_number}</td>
-                    <td className="py-2 pt-4">{user.email}</td>
-                </tr>
+                    <tr key={user.id} className="border-b-[0.5px] border-gray-200">
+                        <td className="py-2 pt-4">{user.id}</td>
+                        <td className="py-2 pt-4">{user.username}</td>
+                        <td className="py-2 pt-4">{user.phone_number}</td>
+                        <td className="py-2 pt-4">{user.email}</td>
+                    </tr>
                 ))}
             </tbody>
             </table>
