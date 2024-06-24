@@ -1,110 +1,21 @@
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import NavBar from "../components/Layouts/NavBar";
 import FieldsInput from "../components/Elements/Input/FieldsInput";
 import FieldCard from "../components/Elements/Card/FieldCard";
 import LandingPageAbout from "../components/Fragments/Landing_Page/landing_page_about";
 import { Helmet } from "react-helmet";
 import TitleSections from "../components/Fragments/title_sections";
+import { getFields } from "../services/db/field.service";
 
 const FieldsPage = () => {
-    const fields = [
-        {
-            id: 1,
-            img: "img/field1.png",
-            name: "Lapangan Generasi Baru",
-            venue: "Venue",
-            location: "Kota Jakarta Pusat",
-            price: 240000
-        },
-        {
-            id: 2,
-            img: "img/field2.png",
-            name: "Lapangan Generasi Baru",
-            venue: "Venue",
-            location: "Kota Jakarta Pusat",
-            price: 240000
-        },
-        {
-            id: 3,
-            img: "img/field3.png",
-            name: "Lapangan Generasi Baru",
-            venue: "Venue",
-            location: "Kota Jakarta Pusat",
-            price: 240000
-        },
-        {
-            id: 4,
-            img: "img/field4.png",
-            name: "Lapangan Generasi Baru",
-            venue: "Futsal",
-            location: "Kota Jakarta Pusat",
-            price: 240000
-        },
-        {
-            id: 5,
-            img: "img/field5.png",
-            name: "Lapangan Generasi Baru",
-            venue: "Futsal",
-            location: "Kota Jakarta Pusat",
-            price: 240000
-        },
-        {
-            id: 6,
-            img: "img/field6.png",
-            name: "Lapangan Generasi Baru",
-            venue: "Venue",
-            location: "Kota Jakarta Pusat",
-            price: 240000
-        },
-        {
-            id: 7,
-            img: "img/field7.png",
-            name: "Lapangan Generasi Baru",
-            venue: "Venue",
-            location: "Kota Jakarta Pusat",
-            price: 240000
-        },
-        {
-            id: 8,
-            img: "img/field8.png",
-            name: "Lapangan Generasi Baru",
-            venue: "Bola Mini",
-            location: "Kota Jakarta Pusat",
-            price: 240000
-        },
-        {
-            id: 9,
-            img: "img/field9.png",
-            name: "Lapangan Generasi Baru",
-            venue: "Venue",
-            location: "Kota Jakarta Pusat",
-            price: 240000
-        },
-        {
-            id: 10,
-            img: "img/field10.png",
-            name: "Lapangan Generasi Baru",
-            venue: "Bulu Tangkis",
-            location: "Kota Jakarta Pusat",
-            price: 240000
-        },
-        {
-            id: 11,
-            img: "img/field11.png",
-            name: "Lapangan Generasi Baru",
-            venue: "Bulu Tangkis",
-            location: "Kota Jakarta Pusat",
-            price: 240000
-        },
-        {
-            id: 12,
-            img: "img/field12.png",
-            name: "Lapangan Generasi Baru",
-            venue: "Renang",
-            location: "Kota Jakarta Pusat",
-            price: 240000
-        },
-    ]
+    const [fields, setFields] = useState([]);
+
+    useEffect(() => {
+        getFields().then((data) => {
+            setFields(data);
+        });
+    }, []);
+
     return (
         <Fragment>
             <Helmet>
@@ -120,9 +31,11 @@ const FieldsPage = () => {
                     <button className="w-1/6 h-16 bg-sky-900 text-white text-xl font-Poppins rounded-2xl">Cari Venue</button>
                 </div>
             </div>
-            <div className="mt-20 w-full grid grid-cols-3 gap-20 px-40 justify-items-center select-none">
-                {fields.length > 0 && fields.map((field) => (
-                    <FieldCard key={field.id} img={field.img} venue={field.venue} name={field.name} location={field.location} price={field.price} />
+            <div className="mt-20 w-full grid grid-cols-3 gap-x-5 gap-y-20 px-40 justify-items-center select-none">
+                {fields.slice(0, 12).map(field => (
+                    <a key={field.id} href={`/fields/${field.id}`} className="mx-10">
+                        <FieldCard key={field.id} img={field.image_url} venue={field.venue} name={field.name} location={field.city} price={field.price_per_hour} />
+                    </a>
                 ))}
             </div>
             
