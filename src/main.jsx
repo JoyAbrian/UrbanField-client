@@ -12,6 +12,7 @@ import DashboardUser from './components/Fragments/Dashboard/dashboard_users';
 import DashboardFields from './components/Fragments/Dashboard/dashboard_fields';
 import DashboardOrder from './components/Fragments/Dashboard/dashboard_orders';
 import DashboardAdmins from './components/Fragments/Dashboard/dashboard_admins';
+import LoginPage from './pages/login_page';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: '/payment',
     element: <PaymentPage />,
+  },
+  {
+    path: '/login',
+    element: <LoginPage />,
   },
   {
     path: '/dashboard',
