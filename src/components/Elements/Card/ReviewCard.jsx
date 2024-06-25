@@ -3,7 +3,7 @@ const ReviewCard = (props) => {
     return (
         <div className="border border-black bg-slate-50 rounded-lg py-3 px-5 w-1/2">
             <div className="items-center flex justify-between">
-                <div className="flex w-fit">
+                <div className="flex w-fit items-center">
                     <img src="/img/userIcon.png" alt="user" className="w-12"/>
                     <div className="font-Poppins ml-2">
                         <p className="font-medium">{name}</p>

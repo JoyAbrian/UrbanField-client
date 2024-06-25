@@ -36,7 +36,7 @@ const FieldsDetailPage = () => {
                     <FieldFacilityDetails field_id={field.id}/>
 
                     <FieldDateBooks />
-                    <FieldReviews />
+                    <FieldReviews fieldId={field.id} />
 
                     <ContactSections />
                 </div>
