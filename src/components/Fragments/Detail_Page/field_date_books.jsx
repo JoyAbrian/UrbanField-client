@@ -1,7 +1,33 @@
-import BookingDate from "../../Elements/BookingDate";
+import React, { useState } from 'react';
+import DateCard from "../../Elements/Card/DateCard";
 import TimeCard from "../../Elements/Card/TimeCard";
 
 const FieldDateBooks = () => {
+    const date = new Date();
+    
+    const daysInIndonesian = ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"];
+    const monthsInIndonesian = ["Jan", "Feb", "Mar", "Apr", "Mei", "Juni", "Juli", "Agu", "Sep", "Okt", "Nov", "Des"];
+    
+    const generateDates = (startDate) => {
+        let dates = [];
+        for (let i = 0; i < 7; i++) {
+            const newDate = new Date(startDate);
+            newDate.setDate(startDate.getDate() + i);
+            const dayName = daysInIndonesian[newDate.getDay()];
+            const dateNumber = newDate.getDate();
+            const monthName = monthsInIndonesian[newDate.getMonth()];
+            dates.push({ dayName, date: `${dateNumber} ${monthName}`, fullDate: newDate });
+        }
+        return dates;
+    }
+
+    const dates = generateDates(date);
+    
+    const [selectedDate, setSelectedDate] = useState(dates[0].fullDate);
+
+    const selectedMonth = selectedDate.getMonth();
+    const selectedYear = selectedDate.getFullYear();
+
     return (
         <div className="mt-20 mx-28">
             <div className="w-fit">
@@ -12,7 +38,20 @@ const FieldDateBooks = () => {
                 <div className="h-0.5 bg-cyan-950 mt-2"/>
             </div>
 
-            <BookingDate />
+            <div className="flex py-2 pl-2 pr-6 w-full shadow-slate-400 shadow-lg mt-8 rounded-2xl items-center justify-between">
+                {dates.map((date, index) => (
+                    <DateCard 
+                        key={index} 
+                        day={date.dayName} 
+                        date={date.date} 
+                        isSelected={selectedDate.getDate() === date.fullDate.getDate() && selectedDate.getMonth() === date.fullDate.getMonth() && selectedDate.getFullYear() === date.fullDate.getFullYear()}
+                        onSelect={() => setSelectedDate(date.fullDate)}
+                    />
+                ))}
+                <button className="w-fit px-20 mx-8 h-14 bg-sky-900 text-white text-2xl font-semibold font-Poppins rounded-2xl">
+                    {`${monthsInIndonesian[selectedMonth]} ${selectedYear}`}
+                </button>
+            </div>
 
             <div className="mt-14 mx-28">
                 <div className="grid grid-cols-4 gap-x-28 gap-y-12">
