@@ -18,7 +18,6 @@ const FieldReviews = ({ fieldId }) => {
             setReviews(reviewsData);
         } catch (error) {
             console.error("Error fetching reviews:", error);
-            // Handle error (show message, retry logic, etc.)
         }
     };
 
