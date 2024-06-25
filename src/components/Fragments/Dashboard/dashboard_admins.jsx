@@ -23,9 +23,6 @@ const DashboardAdmins = () => {
         <div className="mt-5 mx-10 font-Inter font-medium">
             <div className="mx-4 flex justify-between">
                 <h1 className="text-2xl font-medium">ADMINS</h1>
-                <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">
-                    UPDATE
-                </button>
             </div>
             <div className="grid grid-cols-4 gap-8 mt-4 font-Nunito_Sans">
                 {admins.map(admin => (
