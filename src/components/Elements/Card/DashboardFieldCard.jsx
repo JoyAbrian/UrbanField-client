@@ -1,8 +1,8 @@
 const DashboardFieldCard = (props) => {
-    const { image = "/img/dashboard_item/field_example.png", name, description } = props;
+    const { image = "/img/dashboard_item/field_example.png", name, description, onClick } = props;
     return (
-        <div className="w-full p-4">
-            <div className="rounded-md shadow-lg">
+        <div className="w-full p-4" onClick={onClick}>
+            <div className="rounded-md shadow-lg cursor-pointer">
                 <img src={image} alt="field" className="w-full"/>
                 <div className="bg-white px-5 font-Inter">
                     <h1 className="text-lg font-semibold mt-4">{name}</h1>
@@ -11,6 +11,6 @@ const DashboardFieldCard = (props) => {
             </div>
         </div>
     );
-}
+};
 
 export default DashboardFieldCard;
