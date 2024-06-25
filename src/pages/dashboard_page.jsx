@@ -35,7 +35,6 @@ const DashboardPage = () => {
             setUser(userData);
         } catch (error) {
             console.error('Error fetching user data:', error);
-            // Optionally handle error state here, e.g., setUser({ error: error.message });
         }
     };
 

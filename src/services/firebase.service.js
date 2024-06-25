@@ -11,6 +11,6 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const storage = getStorage(app);
+const firebaseStorage = getStorage(app);
 
-export { storage };
+export { firebaseStorage };

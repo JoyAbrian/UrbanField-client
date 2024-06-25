@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { firebaseStorage } from '../../../services/firebase.service';
 
 const FieldModal = ({ showModal, toggleModal, field, onSubmit }) => {
     const [formData, setFormData] = useState({
@@ -73,10 +75,54 @@ const FieldModal = ({ showModal, toggleModal, field, onSubmit }) => {
         setFormData({ ...formData, facilities });
     };
 
-    const handleSubmit = (e) => {
+    const uploadImageToFirebase = async (image) => {
+        if (!image) return null;
+
+        const storageRef = ref(firebaseStorage, `images/${image.name}`);
+        await uploadBytes(storageRef, image);
+        const downloadURL = await getDownloadURL(storageRef);
+
+        return downloadURL;
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        onSubmit(formData);
-        toggleModal();
+
+        try {
+            const imageUrls = await Promise.all([
+                uploadImageToFirebase(formData.image1),
+                uploadImageToFirebase(formData.image2),
+                uploadImageToFirebase(formData.image3),
+            ]);
+
+            const fieldData = {
+                ...formData,
+                image_url: imageUrls[0],
+                image_url2: imageUrls[1],
+                image_url3: imageUrls[2],
+            };
+
+            // Post data to your backend API
+            const response = await fetch('http://127.0.0.1:5000/fields', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(fieldData),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to save field data');
+            }
+
+            const result = await response.json();
+            console.log('Field saved successfully:', result);
+
+            // Close the modal
+            toggleModal();
+        } catch (error) {
+            console.error('Error saving field:', error);
+        }
     };
 
     if (!showModal) return null;
