@@ -17,3 +17,7 @@ export const registerUser = () => {
             throw err;
         });
 };
+
+// export const deleteUser = () => {
+//     return 
+// }

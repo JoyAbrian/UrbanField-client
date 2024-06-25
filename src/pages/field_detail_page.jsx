@@ -30,7 +30,7 @@ const FieldsDetailPage = () => {
             <TitleSections title="BOOKING"/>
             <div className="select-none">
                 <div className="mt-8">
-                    <FieldsImageDetails />
+                    <FieldsImageDetails image1={field.image_url} image2={field.image_url2} image3={field.image_url3}/>
                     <FieldDescDetail name={field.name} city={field.city} address={field.address} street_address={field.street_address} price={field.price_per_hour}/>
 
                     <FieldFacilityDetails field_id={field.id}/>
