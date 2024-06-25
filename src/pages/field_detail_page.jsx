@@ -33,9 +33,9 @@ const FieldsDetailPage = () => {
                     <FieldsImageDetails image1={field.image_url} image2={field.image_url2} image3={field.image_url3}/>
                     <FieldDescDetail name={field.name} city={field.city} address={field.address} street_address={field.street_address} price={field.price_per_hour}/>
 
-                    <FieldFacilityDetails field_id={field.id}/>
+                    <FieldFacilityDetails field_id={field.id} />
 
-                    <FieldDateBooks />
+                    <FieldDateBooks price={field.price_per_hour} />
                     <FieldReviews fieldId={field.id} />
 
                     <ContactSections />
