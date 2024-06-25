@@ -20,10 +20,9 @@ const LoginPage = () => {
 
             if (response.ok) {
                 const data = await response.json();
-                // Save token to local storage
                 localStorage.setItem('token', data.access_token);
-                // Optionally, you can redirect the user or perform other actions
                 console.log('Login successful:', data);
+                window.location.href = '/fields';
             } else {
                 const errorData = await response.json();
                 setError(errorData.message);

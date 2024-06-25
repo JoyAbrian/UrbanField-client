@@ -31,6 +31,7 @@ const RegisterPage = () => {
                 phone_number: "",
                 password: ""
             });
+            window.location.href = '/login';
         } catch (err) {
             setError("Registration failed. Please try again.");
             console.error("Registration Error:", err);

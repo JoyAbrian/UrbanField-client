@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import LandingPageButton from "../Elements/Button/LandingPageButton";
 
 const HeroNavBar = () => {
+    // Check if token exists in local storage
+    const isAuthenticated = localStorage.getItem('token');
+
     return (
         <nav className="flex w-screen absolute top-0 z-20 py-10 px-24 justify-between select-none">
             <div className="flex items-center cursor-pointer">
@@ -14,8 +17,16 @@ const HeroNavBar = () => {
                 <p className="mx-14 cursor-pointer">About Us</p> */}
             </div>
             <div className="flex items-center text-white text-lg font-Inter">
-                <Link to="/login" className="mr-20 cursor-pointer">Sign In</Link>
-                <Link to="/register" className="cursor-pointer"><LandingPageButton textsize='lg'>Sign Up</LandingPageButton></Link>
+                {isAuthenticated ? (
+                    <Link to="/dashboard" className="mr-20 cursor-pointer">My Dashboard</Link>
+                ) : (
+                    <>
+                        <Link to="/login" className="mr-20 cursor-pointer">Sign In</Link>
+                        <Link to="/register" className="cursor-pointer">
+                            <LandingPageButton textsize='lg'>Sign Up</LandingPageButton>
+                        </Link>
+                    </>
+                )}
             </div>
         </nav>
     );
