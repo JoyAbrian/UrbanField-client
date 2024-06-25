@@ -9,7 +9,6 @@ const DashboardAdmins = () => {
         const fetchAdmins = async () => {
             try {
                 const response = await axios.get('http://localhost:5000/users');
-                // Filter users with role === 'admin'
                 const adminUsers = response.data.filter(user => user.role === 'admin');
                 setAdmins(adminUsers);
             } catch (error) {
