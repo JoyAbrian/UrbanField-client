@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import LandingPageButton from "../Elements/Button/LandingPageButton";
 
 const HeroNavBar = () => {
@@ -13,8 +14,8 @@ const HeroNavBar = () => {
                 <p className="mx-14 cursor-pointer">About Us</p> */}
             </div>
             <div className="flex items-center text-white text-lg font-Inter">
-                <p className="mr-20 cursor-pointer">Sign In</p>
-                <LandingPageButton textsize='lg'>Sign Up</LandingPageButton>
+                <Link to="/login" className="mr-20 cursor-pointer">Sign In</Link>
+                <Link to="/register" className="cursor-pointer"><LandingPageButton textsize='lg'>Sign Up</LandingPageButton></Link>
             </div>
         </nav>
     );
