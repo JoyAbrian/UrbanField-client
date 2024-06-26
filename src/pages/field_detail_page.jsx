@@ -35,7 +35,7 @@ const FieldsDetailPage = () => {
 
                     <FieldFacilityDetails field_id={field.id} />
 
-                    <FieldDateBooks price={field.price_per_hour} />
+                    <FieldDateBooks fieldId={field.id} price={field.price_per_hour} />
                     <FieldReviews fieldId={field.id} />
 
                     <ContactSections />

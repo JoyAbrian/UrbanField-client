@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import DashboardFieldCard from '../../Elements/Card/DashboardFieldCard';
 import { getFields, updateField, createField } from '../../../services/db/field.service';
 import FieldModal from '../../Elements/Modal/FieldModal';

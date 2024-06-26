@@ -3,7 +3,7 @@ const PaymentFieldDetail = (props) => {
     return (
         <div className="w-1/2 shadow-lg shadow-slate-400 rounded-xl px-8 pb-20">
             <div className="flex items-center">
-                <img src="img/colouredFieldIcon.png" alt="field" className="w-14 object-cover rounded-l-lg"/>
+                <img src="/img/colouredFieldIcon.png" alt="field" className="w-14 object-cover rounded-l-lg"/>
                 <h1 className="ml-2 text-2xl font-Poppins font-semibold">{name}</h1>
             </div>
             <div className="flex items-center font-Poppins font-medium">

@@ -110,6 +110,7 @@ const FieldModal = ({ showModal, toggleModal, field, onSubmit }) => {
                 },
                 body: JSON.stringify(fieldData),
             });
+        
 
             if (!response.ok) {
                 throw new Error('Failed to save field data');
@@ -122,6 +123,28 @@ const FieldModal = ({ showModal, toggleModal, field, onSubmit }) => {
             toggleModal();
         } catch (error) {
             console.error('Error saving field:', error);
+        }
+    };
+
+    const handleDelete = async () => {
+        if (!field || !field.id) return;
+
+        try {
+            const response = await fetch(`http://127.0.0.1:5000/fields/${field.id}`, {
+                method: 'DELETE',
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to delete field data');
+            }
+
+            const result = await response.json();
+            console.log('Field deleted successfully:', result);
+
+            // Close the modal
+            toggleModal();
+        } catch (error) {
+            console.error('Error deleting field:', error);
         }
     };
 
@@ -160,10 +183,10 @@ const FieldModal = ({ showModal, toggleModal, field, onSubmit }) => {
                     <input type="text" id="price" name="price" value={formData.price} onChange={handleChange} className="block w-full p-2 border border-gray-300 rounded mt-1 mb-4" />
 
                     <label htmlFor="opening" className="block text-sm font-medium text-gray-700">Opening:</label>
-                    <input type="text" id="opening" name="opening" value={formData.opening} onChange={handleChange} className="block w-full p-2 border border-gray-300 rounded mt-1 mb-4" />
+                    <input type="time" id="opening" name="opening" value={formData.opening} onChange={handleChange} className="block w-full p-2 border border-gray-300 rounded mt-1 mb-4" />
 
                     <label htmlFor="closing" className="block text-sm font-medium text-gray-700">Closing:</label>
-                    <input type="text" id="closing" name="closing" value={formData.closing} onChange={handleChange} className="block w-full p-2 border border-gray-300 rounded mt-1 mb-4" />
+                    <input type="time" id="closing" name="closing" value={formData.closing} onChange={handleChange} className="block w-full p-2 border border-gray-300 rounded mt-1 mb-4" />
 
                     <label htmlFor="image1" className="block text-sm font-medium text-gray-700">Image 1:</label>
                     <input type="file" id="image1" name="image1" onChange={handleFileChange} className="block w-full p-2 border border-gray-300 rounded mt-1 mb-4" />
@@ -195,9 +218,16 @@ const FieldModal = ({ showModal, toggleModal, field, onSubmit }) => {
                         <label htmlFor="toilet" className="ml-2">Toilet</label>
                     </div>
 
-                    <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        {field ? 'Update' : 'Save'}
-                    </button>
+                    <div className="flex justify-between">
+                        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            {field ? 'Update' : 'Save'}
+                        </button>
+                        {field && (
+                            <button type="button" onClick={handleDelete} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                Delete
+                            </button>
+                        )}
+                    </div>
                 </form>
             </div>
         </div>
