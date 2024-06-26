@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -10,22 +11,18 @@ const LoginPage = () => {
         event.preventDefault();
 
         try {
-            const response = await fetch('http://127.0.0.1:5000/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email, password }),
+            const response = await axios.post('http://127.0.0.1:5000/login', {
+                email: email,
+                password: password
             });
 
-            if (response.ok) {
-                const data = await response.json();
-                localStorage.setItem('token', data.access_token);
-                console.log('Login successful:', data);
+            // Check response status directly with Axios
+            if (response.status === 200) {
+                localStorage.setItem('token', response.data.access_token);
+                console.log('Login successful:', response.data);
                 window.location.href = '/fields';
             } else {
-                const errorData = await response.json();
-                setError(errorData.message);
+                setError('Failed to login. Please check your credentials.');
             }
         } catch (error) {
             console.error('Error during login:', error);
@@ -71,6 +68,6 @@ const LoginPage = () => {
             </div>
         </div>
     );
-}
+};
 
 export default LoginPage;

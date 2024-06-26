@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DateCard from "../../Elements/Card/DateCard";
 import TimeCard from "../../Elements/Card/TimeCard";
 
-const FieldDateBooks = ({ price }) => {
+const FieldDateBooks = ({ fieldId, price }) => {
     const formattedPrice = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(price);
     const date = new Date();
     
@@ -25,9 +25,30 @@ const FieldDateBooks = ({ price }) => {
     const dates = generateDates(date);
     
     const [selectedDate, setSelectedDate] = useState(dates[0].fullDate);
+    const [selectedTime, setSelectedTime] = useState("");
 
     const selectedMonth = selectedDate.getMonth();
     const selectedYear = selectedDate.getFullYear();
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        // Prepare data to send to payment page
+        const bookingData = {
+            selectedDate,
+            selectedTime,
+            price,
+        };
+
+        // Redirect to payment page with query parameters
+        const queryString = new URLSearchParams({
+            date: selectedDate.toString(),  // Convert date to string for URL
+            time: selectedTime,
+            price: price.toString(),  // Convert price to string for URL
+        }).toString();
+
+        window.location.href = `/payment/${fieldId}?${queryString}`;
+    };
 
     return (
         <div className="mt-20 mx-28">
@@ -55,27 +76,23 @@ const FieldDateBooks = ({ price }) => {
             </div>
 
             <div className="mt-14 mx-28">
-                <div className="grid grid-cols-4 gap-x-28 gap-y-12">
-                    <TimeCard startTime="07:00" endTime="08:00" price={formattedPrice}/>
-                    <TimeCard startTime="08:00" endTime="09:00" price={formattedPrice}/>
-                    <TimeCard startTime="09:00" endTime="10:00" price={formattedPrice}/>
-                    <TimeCard startTime="10:00" endTime="11:00" price={formattedPrice}/>
-                    <TimeCard startTime="11:00" endTime="12:00" price={formattedPrice}/>
-                    <TimeCard startTime="12:00" endTime="13:00" price={formattedPrice}/>
-                    <TimeCard startTime="13:00" endTime="14:00" price={formattedPrice}/>
-                    <TimeCard startTime="14:00" endTime="15:00" price={formattedPrice}/>
-                    <TimeCard startTime="15:00" endTime="16:00" price={formattedPrice}/>
-                    <TimeCard startTime="16:00" endTime="17:00" price={formattedPrice}/>
-                    <TimeCard startTime="17:00" endTime="18:00" price={formattedPrice}/>
-                    <TimeCard startTime="18:00" endTime="19:00" price={formattedPrice}/>
-                    <TimeCard startTime="19:00" endTime="20:00" price={formattedPrice}/>
-                    <TimeCard startTime="20:00" endTime="21:00" price={formattedPrice}/>
-                    <TimeCard startTime="21:00" endTime="22:00" price={formattedPrice}/>
-                    <TimeCard startTime="22:00" endTime="23:00" price={formattedPrice}/>
-                </div>
-                <div className="flex justify-center mt-20">
-                    <button className="w-fit px-14 py-8 h-14 bg-sky-900 text-white text-2xl font-semibold font-Poppins rounded-lg items-center justify-center flex">Booking</button>
-                </div>
+                <form onSubmit={handleSubmit}>
+                    <div className="grid grid-cols-4 gap-x-28 gap-y-12">
+                        {["07:00-08:00", "08:00-09:00", "09:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00", "13:00-14:00", "14:00-15:00", "15:00-16:00", "16:00-17:00", "17:00-18:00", "18:00-19:00", "19:00-20:00", "20:00-21:00", "21:00-22:00", "22:00-23:00"].map((time, index) => (
+                            <TimeCard
+                                key={index}
+                                startTime={time.split('-')[0]}
+                                endTime={time.split('-')[1]}
+                                price={formattedPrice}
+                                isSelected={selectedTime === time}
+                                onSelect={() => setSelectedTime(time)}
+                            />
+                        ))}
+                    </div>
+                    <div className="flex justify-center mt-20">
+                        <button type="submit" className="w-fit px-14 py-8 h-14 bg-sky-900 text-white text-2xl font-semibold font-Poppins rounded-lg items-center justify-center flex">Booking</button>
+                    </div>
+                </form>
             </div>
         </div>
     )

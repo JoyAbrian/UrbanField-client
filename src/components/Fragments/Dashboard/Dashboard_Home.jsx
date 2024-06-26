@@ -52,11 +52,7 @@ const DashboardHome = () => {
         <div className="bg-white p-6 rounded-lg shadow-lg flex items-center">
           <div className="flex-shrink-0">
             <div className="w-16 h-16 bg-gray-300 rounded-full flex items-center justify-center">
-              {imageUrl ? (
-                <img src={imageUrl} alt="Profile" className="w-16 h-16 rounded-full" />
-              ) : (
-                <img src="/img/dashboard_item/dashboard_anonym.png" alt="Profile" className="w-16 h-16 rounded-full" />
-              )}
+              <img src="/img/dashboard_item/dashboard_anonym.png" alt="Profile" className="w-16 h-16 rounded-full" />
             </div>
           </div>
           <div className="ml-4">
