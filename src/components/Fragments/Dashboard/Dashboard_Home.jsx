@@ -65,7 +65,7 @@ const DashboardHome = () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
+      {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
         <div className="bg-white p-6 rounded-lg shadow-lg">
           <div className="text-gray-500">DOC:</div>
           {imageUrl ? (
@@ -75,7 +75,7 @@ const DashboardHome = () => {
           )}
           <input type="file" accept="image/*" onChange={handleImageChange} className="mt-4 block w-full px-4 py-2 border border-gray-300 rounded-md bg-white text-sm font-medium text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"/>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -185,28 +185,13 @@ const FieldModal = ({ showModal, toggleModal, field, onSubmit }) => {
                     <input type="file" id="image3" name="image3" onChange={handleFileChange} className="block w-full p-2 border border-gray-300 rounded mt-1 mb-4" />
                     {imagePreviews.image3 && <img src={imagePreviews.image3} alt="Preview" className="mt-2 w-full" />}
 
-                    <label htmlFor="facilities" className="block text-sm font-medium text-gray-700">Fasilitas:</label>
-                    <div className="mb-4">
-                        <input type="checkbox" id="parkiran" name="facilities" value="parkiran" checked={formData.facilities.includes('parkiran')} onChange={handleCheckboxChange} className="mr-2" />
-                        <label htmlFor="parkiran" className="ml-2">Parkiran</label>
-                        <br />
-                        <input type="checkbox" id="musholla" name="facilities" value="musholla" checked={formData.facilities.includes('musholla')} onChange={handleCheckboxChange} className="mr-2" />
-                        <label htmlFor="musholla" className="ml-2">Musholla</label>
-                        <br />
-                        <input type="checkbox" id="ruangGanti" name="facilities" value="ruangGanti" checked={formData.facilities.includes('ruangGanti')} onChange={handleCheckboxChange} className="mr-2" />
-                        <label htmlFor="ruangGanti" className="ml-2">Ruang Ganti</label>
-                        <br />
-                        <input type="checkbox" id="kantin" name="facilities" value="kantin" checked={formData.facilities.includes('kantin')} onChange={handleCheckboxChange} className="mr-2" />
-                        <label htmlFor="kantin" className="ml-2">Kantin</label>
-                        <br />
-                        <input type="checkbox" id="toilet" name="facilities" value="toilet" checked={formData.facilities.includes('toilet')} onChange={handleCheckboxChange} className="mr-2" />
-                        <label htmlFor="toilet" className="ml-2">Toilet</label>
-                    </div>
-
                     <div className="flex justify-between">
-                        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            {field ? 'Update' : 'Save'}
-                        </button>
+                        {!field && (
+                            <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                Save
+                            </button>
+                        )}
+
                         {field && (
                             <button type="button" onClick={handleDelete} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                                 Delete
