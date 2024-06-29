@@ -46,7 +46,7 @@ const DashboardPage = () => {
             <div className="flex flex-col flex-grow overflow-hidden h-full">
                 <DashboardNavbar  username={user.username} />
                 <div className="p-4 overflow-y-auto h-full">
-                    <Outlet />
+                    <Outlet context={{ role: user.role }} />
                 </div>
             </div>
         </div>

@@ -2,13 +2,19 @@ import  { useState, useEffect } from 'react';
 import DashboardFieldCard from '../../Elements/Card/DashboardFieldCard';
 import { getFields, updateField, createField } from '../../../services/db/field.service';
 import FieldModal from '../../Elements/Modal/FieldModal';
+import { useOutletContext } from 'react-router-dom';
 
 const DashboardFields = () => {
     const [fields, setFields] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [selectedField, setSelectedField] = useState(null);
+    const { role } = useOutletContext();
 
     useEffect(() => {
+        if (role != 'admin') {
+            window.location.href = '/dashboard';
+        }
+
         getFields().then((data) => {
             setFields(data);
         });

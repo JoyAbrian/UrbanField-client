@@ -1,10 +1,16 @@
 import{ useState, useEffect } from 'react';
 import { getOrders } from '../../../services/db/order.service';
+import { useOutletContext } from 'react-router-dom';
 
 const DashboardOrder = () => {
     const [bookings, setBookings] = useState([]);
+    const { role } = useOutletContext();
 
     useEffect(() => {
+        if (role != 'admin') {
+            window.location.href = '/dashboard';
+        }
+
         getOrders().then((data) => {
             setBookings(data);
         });

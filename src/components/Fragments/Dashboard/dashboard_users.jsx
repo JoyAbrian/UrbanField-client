@@ -1,11 +1,17 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { getUsers } from '../../../services/db/user.service';
+import { useOutletContext } from 'react-router-dom';
 
 const DashboardUser = () => {
     const [users, setUsers] = useState([]);
+    const { role } = useOutletContext();
 
     useEffect(() => {
+        if (role != 'admin') {
+            window.location.href = '/dashboard';
+        }
+        
         getUsers().then((data) => {
             setUsers(data);
         });
