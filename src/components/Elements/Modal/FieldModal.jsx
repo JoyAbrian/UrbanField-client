@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { firebaseStorage } from '../../../services/firebase.service';
 
 const FieldModal = ({ showModal, toggleModal, field, onSubmit }) => {
     const [formData, setFormData] = useState({
         nama: '',
-        tipe: 'futsal',
+        tipe: '1',
         city: '',
         address: '',
         street: '',
@@ -27,26 +25,26 @@ const FieldModal = ({ showModal, toggleModal, field, onSubmit }) => {
         if (field) {
             setFormData({
                 nama: field.name || '',
-                tipe: field.type || 'futsal',
+                tipe: field.type || '1',
                 city: field.city || '',
                 address: field.address || '',
                 street: field.street_address || '',
                 price: field.price_per_hour || '',
                 opening: field.opening_time || '',
                 closing: field.closing_time || '',
-                image1: field.image_url || null,
-                image2: field.image_url2 || null,
-                image3: field.image_url3 || null,
+                image1: null,
+                image2: null,
+                image3: null,
                 facilities: field.facilities || [],
             });
             setImagePreviews({
-                image1: field.image_url || null,
-                image2: field.image_url2 || null,
-                image3: field.image_url3 || null,
+                image1: field.image_url ? `http://127.0.0.1:5000/${field.image_url}` : null,
+                image2: field.image_url2 ? `http://127.0.0.1:5000/${field.image_url2}` : null,
+                image3: field.image_url3 ? `http://127.0.0.1:5000/${field.image_url3}` : null,
             });
         }
     }, [field]);
-
+    
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -75,40 +73,27 @@ const FieldModal = ({ showModal, toggleModal, field, onSubmit }) => {
         setFormData({ ...formData, facilities });
     };
 
-    const uploadImageToFirebase = async (image) => {
-        if (!image) return null;
-
-        const storageRef = ref(firebaseStorage, `images/${image.name}`);
-        await uploadBytes(storageRef, image);
-        const downloadURL = await getDownloadURL(storageRef);
-
-        return downloadURL;
-    };
-
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        const formDataToSubmit = new FormData();
+        formDataToSubmit.append('name', formData.nama);
+        formDataToSubmit.append('type_id', formData.tipe);
+        formDataToSubmit.append('city', formData.city);
+        formDataToSubmit.append('address', formData.address);
+        formDataToSubmit.append('street_address', formData.street);
+        formDataToSubmit.append('price_per_hour', formData.price);
+        formDataToSubmit.append('opening_time', formData.opening);
+        formDataToSubmit.append('closing_time', formData.closing);
+        formDataToSubmit.append('image_url', formData.image1);
+        formDataToSubmit.append('image_url2', formData.image2);
+        formDataToSubmit.append('image_url3', formData.image3);
+        formDataToSubmit.append('facilities', JSON.stringify(formData.facilities));
+
         try {
-            const imageUrls = await Promise.all([
-                uploadImageToFirebase(formData.image1),
-                uploadImageToFirebase(formData.image2),
-                uploadImageToFirebase(formData.image3),
-            ]);
-
-            const fieldData = {
-                ...formData,
-                image_url: imageUrls[0],
-                image_url2: imageUrls[1],
-                image_url3: imageUrls[2],
-            };
-
-            // Post data to your backend API
             const response = await fetch('http://127.0.0.1:5000/fields', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(fieldData),
+                body: formDataToSubmit,
             });
         
 
@@ -165,9 +150,9 @@ const FieldModal = ({ showModal, toggleModal, field, onSubmit }) => {
 
                     <label htmlFor="tipe" className="block text-sm font-medium text-gray-700">Tipe Lapangan:</label>
                     <select id="tipe" name="tipe" value={formData.tipe} onChange={handleChange} className="block w-full p-2 border border-gray-300 rounded mt-1 mb-4">
-                        <option value="futsal">Futsal</option>
-                        <option value="badminton">Badminton</option>
-                        <option value="voli">Voli</option>
+                        <option value="1">Futsal</option>
+                        <option value="2">Badminton</option>
+                        <option value="3">Voli</option>
                     </select>
 
                     <label htmlFor="city" className="block text-sm font-medium text-gray-700">City:</label>
