@@ -165,7 +165,7 @@ const FieldModal = ({ showModal, toggleModal, field, onSubmit }) => {
                     <input type="text" id="street" name="street" value={formData.street} onChange={handleChange} className="block w-full p-2 border border-gray-300 rounded mt-1 mb-4" />
 
                     <label htmlFor="price" className="block text-sm font-medium text-gray-700">Price/Hour:</label>
-                    <input type="text" id="price" name="price" value={formData.price} onChange={handleChange} className="block w-full p-2 border border-gray-300 rounded mt-1 mb-4" />
+                    <input type="number" id="price" name="price" value={formData.price} onChange={handleChange} className="block w-full p-2 border border-gray-300 rounded mt-1 mb-4" />
 
                     <label htmlFor="opening" className="block text-sm font-medium text-gray-700">Opening:</label>
                     <input type="time" id="opening" name="opening" value={formData.opening} onChange={handleChange} className="block w-full p-2 border border-gray-300 rounded mt-1 mb-4" />
