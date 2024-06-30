@@ -7,6 +7,11 @@ const LoginPage = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
+    const token = localStorage.getItem('token');
+    if (token) {
+        window.location.href = '/fields';
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 

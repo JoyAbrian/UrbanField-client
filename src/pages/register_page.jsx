@@ -12,6 +12,11 @@ const RegisterPage = () => {
     const [error, setError] = useState(null);
     const [successMessage, setSuccessMessage] = useState(null);
 
+    const token = localStorage.getItem('token');
+    if (token) {
+        window.location.href = '/fields';
+    }
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({
