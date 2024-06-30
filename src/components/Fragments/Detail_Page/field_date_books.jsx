@@ -30,21 +30,22 @@ const FieldDateBooks = ({ fieldId, price }) => {
     const selectedMonth = selectedDate.getMonth();
     const selectedYear = selectedDate.getFullYear();
 
+    function formatDate(selectedTime) {
+        const date = new Date(selectedTime);
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        
+        return `${year}-${month}-${day}`;
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        // Prepare data to send to payment page
-        const bookingData = {
-            selectedDate,
-            selectedTime,
-            price,
-        };
-
-        // Redirect to payment page with query parameters
         const queryString = new URLSearchParams({
-            date: selectedDate.toString(),  // Convert date to string for URL
+            date: formatDate(selectedDate),  
             time: selectedTime,
-            price: price.toString(),  // Convert price to string for URL
+            price: price.toString(), 
         }).toString();
 
         window.location.href = `/payment/${fieldId}?${queryString}`;
